@@ -1,161 +1,309 @@
 <!DOCTYPE html>
 <html lang="en">
-<style>
-    * {box-sizing:border-box}
-
-  /* Slideshow container */
-  .head {
-    width:max-content;
-    color: white;
-    text-emphasis-color:darkblue;
-    text-align: center;
-
-  }
-  .slideshow-container {
-    max-width: 1000px;
-    position: relative;
-    margin: auto;
-  }
-
-  /* Hide the images by default */
-  .mySlides {
-    display: none;
-  }
-
-  /* Next & previous buttons */
-  .prev, .next {
-   cursor: pointer;
-    position: absolute;
-    top: 50%;
-    width: auto;
-    margin-top: -22px;
-    padding: 16px;
-    color: white;
-    font-weight: bold;
-    font-size: 18px;
-    transition: 0.6s ease;
-    border-radius: 0 3px 3px 0;
-    user-select: none;
-  }
-
-  /* Position the "next button" to the right */
-  .next {
-    right: 0;
-    border-radius: 3px 0 0 3px;
-  }
-
-  /* On hover, add a black background color with a little bit see-through */
-  .prev:hover, .next:hover {
-    background-color: rgba(0,0,0,0.8);
-  }
-
-  /* Caption text */
-  .text {
-    color: #f2f2f2;
-    font-size: 15px;
-    padding: 8px 12px;
-    position: absolute;
-    bottom: 8px;
-    width: 100%;
-    text-align: center;
-  }
-
-  /* Number text (1/3 etc) */
-  .numbertext {
-    color: #f2f2f2;
-    font-size: 12px;
-    padding: 8px 12px;
-    position: absolute;
-    top: 0;
-  }
-
-  /* The dots/bullets/indicators */
-  .dot {
-    cursor: pointer;
-    height: 15px;
-    width: 15px;
-    margin: 0 2px;
-    background-color: #bbb;
-    border-radius: 50%;
-    display: inline-block;
-    transition: background-color 0.6s ease;
-  }
-
-  .active, .dot:hover {
-    background-color: #717171;
-  }
-
-  /* Fading animation */
-  .fade {
-    animation-name: fade;
-    animation-duration: 1.5s;
-  }
-
-  @keyframes fade {
-    from {opacity: .4}
-    to {opacity: 1}
-  }
-</style>
-@theme {
-  --font-display: "Oswald", sans-serif; 
-}
 <head>
-  <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
-  <link rel="stylesheet" href="styles.css"/>
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-  <script src="./script.js"></script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Your Site Title</title>
+  <title>DigiMenu</title>
   <meta name="description" content="Concise SEO description of your site here">
   <link rel="canonical" href="https://yourdomain.com/" />
+  
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
-</head>
-<body class="bg-black">
-  <div>
-    <header>
-      <div class="flex items-center justify-center bg-gray-100">
-        <a class = "text-center text-6xl font-bold text-gray-800"> DigiMenu </a>
+  <style>
+    * { box-sizing: border-box; }
+
+    /* Slideshow container */
+    .slideshow-container {
+      max-width: 600px; /* Adjusted so images look balanced */
+      position: relative;
+      margin: auto;
+    }
+
+    /* Hide the images by default */
+    .mySlides {
+      display: none; /* CHANGED FROM inherit TO none */
+      width: 100%;
+    }
+
+    /* Make images fill the slide container properly */
+    .mySlides img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    /* Next & previous buttons */
+    .prev, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: auto;
+      padding: 16px;
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
+      transition: 0.6s ease;
+      border-radius: 0 3px 3px 0;
+      user-select: none;
+      background-color: rgba(0,0,0,0.3);
+    }
+
+    /* Position the "next button" to the right */
+    .next {
+      right: 0;
+      border-radius: 3px 0 0 3px;
+    }
+
+    /* On hover, add a darker background */
+    .prev:hover, .next:hover {
+      background-color: rgba(0,0,0,0.8);
+    }
+
+    /* Caption text */
+    .text {
+      color: #f2f2f2;
+      font-size: 18px;
+      font-weight: bold;
+      padding: 8px 12px;
+      position: absolute;
+      bottom: 15px;
+      width: 100%;
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    /* Number text (1/3 etc) */
+    .numbertext {
+      color: #f2f2f2;
+      font-size: 12px;
+      padding: 8px 12px;
+      position: absolute;
+      top: 0;
+      background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    /* The dots/bullets/indicators */
+    .dot {
+      cursor: pointer;
+      height: 15px;
+      width: 15px;
+      margin: 0 2px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.6s ease;
+    }
+
+    .active, .dot:hover {
+      background-color: #717171;
+    }
+
+    /* Fading animation */
+    .fade {
+      animation-name: fade;
+      animation-duration: 1.5s;
+    }
+
+    @keyframes fade {
+      from { opacity: .4; }
+      to { opacity: 1; }
+    }
+  </style>
+  <div style="visibility:hidden; display:none;">
+      <div class="fade" id="BaseContainer">
+          <div class="numbertext">1 / 3</div>
+          <img src="https://feastwithsafiya.com/wp-content/uploads/2022/03/chicken-curry-recipe.jpg" alt="Chicken Curry">
+          <div class="text">Chicken Curry (3.50)</div>
       </div>
-      <p class = "text-center text-x1 font-bold text-white"> The <i>smart</i> future of school catering</a>
+  </div>
+</head>
+<body class="bg-black text-white">
+
+  <div>
+    <header class="mb-6">
+      <div class="flex items-center justify-center bg-gray-100 py-4">
+        <a class="text-center text-6xl font-bold text-gray-800">DigiMenu</a>
+      </div>
+      <p class="text-center text-xl font-bold mt-2">The <span class="italic text-yellow-400">smart</span> future of school catering</p>
     </header>
-    <button>
-      <a>Filter</a>
-    </button>iv>
-<div class="h-screen">
-  <div class="slideshow-container">
-
-    <!-- Full-width images with number and caption text -->
-    <div class="mySlides fade" id="BaseContainer">
-      <div class="numbertext">1 / 3</div>
-      <img src="https://feastwithsafiya.com/wp-content/uploads/2022/03/chicken-curry-recipe.jpg" style="width:100%">
-      <div class="text">Chicken Curry</div>
+    
+    <div class="text-center mb-4">
+      <button class="bg-gray-700 px-4 py-2 rounded text-white font-bold hover:bg-gray-600">Filter</button>
+      <button class="bg-gray-700 px-4 py-2 rounded text-white font-bold hover:bg-gray-600">Monday 19th</button>
     </div>
-
-    <div class="mySlides fade">
-      <div class="numbertext">2 / 3</div>
-      <img src="https://thehalallife.co.uk/wp-content/uploads/2023/12/chicken-curry-1000x576-1.jpg" style="width:100%">
-      <div class="text">Caption Two (£3.50)</div>
-    </div>
-
-    <div class="mySlides fade">
-      <div class="numbertext">3 / 3</div>
-      <img src="https://www.rabbitandwolves.com/wp-content/uploads/2019/01/Vegan-Steak-Panini0851-500x375.jpg" style="width:100%">
-      <div class="text">Caption Three</div>
-    </div>
-
-    <!-- Next and previous buttons -->
-    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-    <a class="next" onclick="plusSlides(1)">&#10095;</a>
   </div>
-  <br>
 
-  <!-- The dots/circles -->
-  <div style="text-align:center">
-    <span class="dot" onclick="currentSlide(1)"></span>
-    <span class="dot" onclick="currentSlide(2)"></span>
-    <span class="dot" onclick="currentSlide(3)"></span>
+  <div class="h-screen px-4">
+    <div class="slideshow-container">
+
+      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+    <br>
+
+    <div style="text-align:center">
+      <span class="dot" onclick="currentSlide(3)"></span>
+      <span class="dot" onclick="currentSlide(4)"></span>
+      <span class="dot" onclick="currentSlide(5)"></span>
+      <span class="dot" onclick="currentSlide(6)"></span>
+      <span class="dot" onclick="currentSlide(7)"></span>
+      <span class="dot" onclick="currentSlide(8)"></span>
+      <span class="dot" onclick="currentSlide(9)"></span>
+      <span class="dot" onclick="currentSlide(10)"></span>
+      <span class="dot" onclick="currentSlide(11)"></span>
+      <span class="dot" onclick="currentSlide(12)"></span>
+      <span class="dot" onclick="currentSlide(1)"></span>
+      <span class="dot" onclick="currentSlide(2)"></span>
+      
+    </div>
+    <div class="flex justify-center items-center">
+    <button class="btn">Select</button>
+    <button class="btn">Request</button>
+    <button class="btn justify-self-end">Finish</button>
+    </div>
+    
+  <p class="text-center mb-4">Contact 07893 45673 to request further detailes or contact your school administrater</p>
   </div>
-</div>
+
+  <script>
+    let slideIndex = 3;
+    showSlides(slideIndex);
+
+    // Next/previous controls
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+
+    // Thumbnail image controls
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+      const data = JSON.parse(`
+      {
+    "Curry" : {
+        "Chicken Curry": {
+            "Ingredients": [ "Rice", "Chicken", "Dairy", "Gluten"],
+            "Price": 3.50,
+            "Image": "https://feastwithsafiya.com/wp-content/uploads/2022/03/chicken-curry-recipe.jpg"
+        },
+
+        "Tofu Curry (V)": {
+            "Ingredients": ["Tofu", "Rice", "Legumes", "Oat Milk"],
+            "Price": 3.50,
+            "Image": "https://www.fromthecomfortofmybowl.com/wp-content/uploads/2021/06/vegan-thai-red-curry-with-tofu.jpg"
+        },
+
+        "Chicken Curry (H)": {
+            "Ingredients": [ "Rice", "Dairy", "H-Chicken" ],
+            "Price": 3.50,
+            "Image": "https://thehalallife.co.uk/wp-content/uploads/2023/12/chicken-curry-1000x576-1.jpg"
+        }
+    },
+
+    "Panini" : {
+        "Pepporoni Panini": {
+            "Ingredients": ["Bread", "Cheese", "Dairy", "Gluten", "Pepporoni"],
+            "Price": 3.00,
+            "Image": "https://www.tastingtable.com/img/gallery/pepperoni-pizza-panini-recipe/pepperoni-pizza-panini-recipe-1710784447.jpg"        
+        },
+
+        "Panini (V)": {
+            "Ingredients": ["Tofu", "Bread", "Gluten", "DF-Cheese"],
+            "Price": 3.00,
+            "Image": "https://www.rabbitandwolves.com/wp-content/uploads/2019/01/Vegan-Steak-Panini0851-500x375.jpg"
+        },
+
+        "Chicken Panini (H)": {
+            "Ingredients": [ "Bread", "Cheese", "Tomato Sauce", "Gluten", "Halal Chicken"],
+            "Price": 3.00,
+            "Image": "https://dudethatcookz.com/wp-content/uploads/2018/09/italian_chicken_panini.jpg"
+        }
+    },
+
+    "Burger" : {
+        "Cheeseburger": {
+            "Ingredients": ["Bread", "Cheese", "Dairy", "Gluten", "Beef"],
+            "Price": 3.00,
+            "Image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqSdhswKPiMRr4RU2lPxKVzIJh7DpigsOv9winmP2G0g&s"
+        },
+
+        "Veggie Burger (V)": {
+            "Ingredients": ["Bean Patty", "Bread", "Gluten", "DF-Cheese"],
+            "Price": 3.00,
+            "Image": ""
+        },
+
+        "Halal Burger (H)": {
+            "Ingredients": [ "Bread", "Cheese", "Gluten", "Halal Chicken"],
+            "Price": 3.00,
+            "Image": "https://cdn.shopify.com/s/files/1/1785/5627/t/60/assets/what_is_halal_burger-1684366213404_1000x.jpg?v=1684366215"
+        }
+    },
+    
+    "Shepherd's Pie" : {
+        "Shepherd's Pie": {
+            "Ingredients": ["Carrot", "Cheese", "Dairy", "Gluten", "Beef", "Potato"],
+            "Price": 3.00,
+            "Image": "https://www.tamingtwins.com/wp-content/uploads/2024/11/cottage-pie-9.jpg"
+        },
+
+        "Vegan Shepherd's Pie (V)": {
+            "Ingredients": ["Mushrooms", "Lentils", "Gluten", "DF-Cheese", "Potato"],
+            "Price": 3.00,
+            "Image": "https://www.wholeheartedeats.com/wp-content/uploads/2023/11/Vegan-cottage-pie.jpg"
+        },
+
+        "Halal Shepherd's Pie (H)": {
+            "Ingredients": ["Carrot", "Cheese", "Dairy", "Gluten", "Halal Beef", "Potato"],
+            "Price": 3.00,
+            "Image": "https://www.tamingtwins.com/wp-content/uploads/2024/11/cottage-pie-9.jpg"
+        }
+    }
+}
+      `)
+      const BaseSlideshow = document.getElementsByClassName("slideshow-container")[0]
+      const BaseContainer = document.getElementById("BaseContainer")
+      Object.entries(data).forEach((entry) => {
+          const [Category, Specifics] = entry;
+          Object.entries(Specifics).forEach((second) => {
+              const [Specific, Data] = second;
+              console.log(`${Specific}, ${Data.Ingredients}, ${Data.Price}, ${Data.Image}`)
+              let SpecificNode = BaseContainer.cloneNode(true)
+              SpecificNode.classList.add("mySlides")
+              SpecificNode.querySelector(".text").textContent = `${Specific}`
+              if(Data.Image) { 
+                SpecificNode.querySelector("img").src = Data.Image
+                BaseSlideshow.appendChild(SpecificNode)
+              }
+            })
+      });
+
+      let i;
+      let slides = document.getElementsByClassName("mySlides");
+      let dots = document.getElementsByClassName("dot");
+      
+      if (n > slides.length) { slideIndex = 1 }
+      if (n < 1) { slideIndex = slides.length }
+      
+      // Hide all slides
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      
+      // Remove active class from all dots
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      
+      // Show the current slide and activate the corresponding dot
+      slides[slideIndex - 1].style.display = "block";
+      dots[slideIndex - 1].className += " active";
+    }
+  </script>
+
 </body>
 </html>
