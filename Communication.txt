@@ -1,0 +1,18 @@
+So the plan is to use multiple text files to hold our info and then use the info from that to output potential options for food - Red
+Any ideas?- Red
+I say we use seperate files for each food item containing the actual ingredients rather than a list of foods-red
+can someone reply please :sob:
+Wait, what's on the menu??
+like 4 items : Curry, paninis, etc. 
+Are we going to have drinks/desserts?
+If possible but we might not have enough time. Instead we could do like "Food packs" like Curry comes with a specific drink/desert but ideally we want them serperate.
+OK
+So how about we make one person do one menu item (like i do curry, liam does another food, ayo does pne and so does demi?)????
+And then we also do all associating allergens. 
+We could probably get 1 person to do all the foods - it might save time.
+It definetly will
+The foods can be in one json filesms and artemis and liam if he wants will deal with teh website
+is that ok with you liam?
+So what am i gonna do :pensive:- Red
+damn i got aired- red 
+We need to be able to save this and store it for later.
